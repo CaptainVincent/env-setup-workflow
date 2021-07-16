@@ -1,0 +1,6 @@
+baseURL = "https://captainvincent.github.io/env-setup-workflow"
+languageCode = "en-us"
+title = "Env Setup Workflow"
+
+[params]
+  BookTheme = 'dark'
