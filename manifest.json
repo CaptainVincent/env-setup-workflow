@@ -1,14 +1,14 @@
 {
   "name": "Env Setup Workflow",
   "short_name": "Env Setup Workflow",
-  "start_url": "/book/",
-  "scope": "/book/",
+  "start_url": "/env-setup-workflow/",
+  "scope": "/env-setup-workflow/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/book/favicon.svg",
+      "src": "/env-setup-workflow/favicon.svg",
       "sizes": "512x512"
     }
   ]
