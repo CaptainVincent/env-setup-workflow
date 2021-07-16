@@ -1,0 +1,182 @@
+tap "beeftornado/rmtree"
+tap "buo/cask-upgrade"
+tap "ethereum/ethereum"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/command-not-found"
+tap "homebrew/core"
+tap "nektos/tap"
+tap "universal-ctags/universal-ctags"
+# Download with resuming and segmented downloading
+brew "aria2"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Package manager for the web
+brew "bower"
+# Create and view interactive cheat sheets for *nix commands
+brew "cheat"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Cross-platform make
+brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Pack, ship and run any application as a lightweight container
+brew "docker", link: false
+# More intuitive version of du in rust
+brew "dust"
+# Official Go implementation of the Ethereum protocol
+brew "ethereum"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Improved top (interactive process viewer)
+brew "htop"
+# Website copier/offline browser
+brew "httrack"
+# Configurable static site generator
+brew "hugo"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# LZMA-based compression program similar to gzip or bzip2
+brew "lzip"
+# Keep your Mac's application settings in sync
+brew "mackup"
+# Mac App Store command-line interface
+brew "mas"
+# Command-line client for Mega.co.nz
+brew "megatools"
+# Intercept, modify, replay, save HTTP/S traffic
+brew "mitmproxy"
+# Node version management
+brew "n"
+# Adds an OCR text layer to scanned PDF files
+brew "ocrmypdf"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Modern replacement for ps written by Rust
+brew "procs"
+# Monitor data's progress through a pipe
+brew "pv"
+# Python version management
+brew "pyenv"
+# Perl-powered file rename script with many helpful built-ins
+brew "rename"
+# Repository tool for Android development
+brew "repo"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Readline wrapper: adds readline support to tools that lack it
+brew "rlwrap"
+# Safe, concurrent, practical language
+brew "rust"
+# Generate ASCII art with terminal, shell, and OS info
+brew "screenfetch", args: ["HEAD"]
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Enables extra languages support for Tesseract
+brew "tesseract-lang"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Text interface for Git repositories
+brew "tig"
+# Command-line unarchiving tools supporting multiple formats
+brew "unar"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Internet file retriever
+brew "wget"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# Run GitHub Actions locally
+brew "nektos/tap/act"
+# Maintained ctags implementation
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+# Application launcher and productivity software
+cask "alfred3"
+# Combined interface for various messaging platforms
+cask "all-in-one-messenger"
+# Desktop password and login vault
+cask "bitwarden"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Automated testing of webapps for Google Chrome
+cask "chromedriver"
+# Server and cloud storage browser
+cask "cyberduck"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
+# Status monitoring
+cask "eul"
+# GIT client
+cask "fork"
+# Download accelerator and organizer
+cask "free-download-manager"
+# Web browser
+cask "google-chrome"
+# Utility to hide menu bar items
+cask "hiddenbar"
+# Free and open-source media player
+cask "iina"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Open-source keystroke visualizer
+cask "keycastr"
+# Add code completions to all your code editors
+cask "kite"
+# App to write, plan, collaborate, and get organized
+cask "notion"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# File system integration
+cask "osxfuse"
+# Tool for sending personal documents to Kindles from Macs
+cask "send-to-kindle"
+# Screen capture tool with mark up and sharing features
+cask "skitch"
+# Team communication and collaboration software
+cask "slack"
+# Move and resize windows with ease
+cask "spectacle"
+# Music streaming service
+cask "spotify"
+# Text editor for code, markup and prose
+cask "sublime-text"
+# Explore, create and publicly share data visualizations online
+cask "tableau-public"
+# Messaging app with a focus on speed and security
+cask "telegram"
+# Web browser focusing on security
+cask "tor-browser"
+# Open-source code editor
+cask "visual-studio-code"
+# BBS client
+cask "welly"
+# Collect, organize, cite, and share research sources
+cask "zotero"
+mas "Coin Tick", id: 1141688067
+mas "Gas Now", id: 1532358105
+mas "iMovie", id: 408981434
+mas "LINE", id: 539883307
+mas "Simplenote", id: 692867256
+mas "Spark", id: 1176895641
+mas "Xcode", id: 497799835
