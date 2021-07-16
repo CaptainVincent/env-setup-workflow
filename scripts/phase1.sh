@@ -1,16 +1,15 @@
 #!/bin/bash
 # Proper header for a Bash script.
 
-BASEDIR=$(dirname "$0")
+BASEDIR=$(readlink -f "$0" | xargs dirname)
 
 # A utility function for check command exist
 command_exists () {
-  loc="$(type -p "$foobar_command_name")"
-  [[ -z $loc ]]
+  ! loc="$(type -p "$1")" || [[ -z $loc ]]
 }
 
 # Install zsh
-if ! command_exists zsh &> /dev/null
+if command_exists zsh &> /dev/null
 then
   if [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
@@ -32,14 +31,14 @@ if [[ "$SHELL" != */zsh && $(grep -q '$USER' /etc/passwd) ]]; then
 fi
 
 # Install zinit
-if ! command_exists zinit &> /dev/null
+if command_exists zinit &> /dev/null
 then
   echo "zinit not found, install it"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
 
 # Install homebrew | linuxbrew
-if ! command_exists brew &> /dev/null
+if command_exists brew &> /dev/null
 then
   echo "homebrew not found, install it"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -52,7 +51,7 @@ fi
 
 # Install homebrew packages
 echo "brew bundle install packages"
-brew bundle --file=${BASEDIR}/Brewfiles/BrewfileBasic.rb
+brew bundle --file=${BASEDIR}/../Brewfiles/BrewfileBasic.rb
 
 # Install linuxbrew not suppoted packages
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -63,7 +62,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
 
   # Install unar
-  if ! command_exists unar &> /dev/null
+  if command_exists unar &> /dev/null
   then
     echo "apt install unar"
     sudo apt install unar
@@ -73,7 +72,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # # After considering the situation not always setup my VPS,
   # # linux base choose dotfiles manager `chezmoi`.
   #
-  # if ! command_exists dropbox &> /dev/null
+  # if command_exists dropbox &> /dev/null
   # then
   #   echo "dropbox not found in linux, install it"
   #   sudo wget -O /usr/local/bin/dropbox "https://www.dropbox.com/download?dl=packages/dropbox.py"
@@ -110,7 +109,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   fi
 
   ## Inject a warning message before login
-  sudo sed -i "s@#Banner none@Banner ${BASEDIR}/warning.net/@g" /etc/ssh/sshd_config
+  sudo sed -i "s@#Banner none@Banner ${BASEDIR}/../warning.net/@g" /etc/ssh/sshd_config
   sudo systemctl restart sshd
 fi
 

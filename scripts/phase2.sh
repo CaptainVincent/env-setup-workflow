@@ -1,17 +1,17 @@
 #!/bin/bash
 # Proper header for a Bash script.
 
-BASEDIR=$(dirname "$0")
+BASEDIR=$(readlink -f "$0" | xargs dirname)
 
-if ! command_exists zsh &> /dev/null
-then
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    # Mac OSX
-    mackup restore
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Linux
-    chezmoi init --apply CaptainVincent
-    /bin/bash -c "${BASEDIR}/relink-chezmoi2mackup.sh"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+  mackup restore
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Linux
+  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  chezmoi init --apply CaptainVincent
+  chezmoi update
+  /bin/bash -c "${BASEDIR}/relink_chezmoi2mackup.sh"
 fi
 
 # Install vim plugins
