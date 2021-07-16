@@ -19,7 +19,7 @@ then
     # Linux
     echo "No zsh on linux, auto apt install it."
     sudo apt update
-    sudo apt install zsh
+    sudo apt install zsh -y
   fi
 fi
 
@@ -42,11 +42,17 @@ fi
 if command_exists brew &> /dev/null
 then
   echo "homebrew not found, install it"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
-    brew install gcc
+    sudo apt install build-essential -y
+    git clone https://github.com/Homebrew/brew ~/.linuxbrew/Homebrew
+    mkdir ~/.linuxbrew/bin
+    ln -s ~/.linuxbrew/Homebrew/bin/brew ~/.linuxbrew/bin
+    eval $(~/.linuxbrew/bin/brew shellenv)
+    export PATH=$PATH:$HOME/.linuxbrew/bin
   fi
 fi
 
@@ -66,11 +72,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   if command_exists unar &> /dev/null
   then
     echo "apt install unar"
-    sudo apt install unar
+    sudo apt install unar -y
   fi
 
-  # Install system python
-  sudo apt install python3-venv python3-pip
+  # # Install system python
+  # sudo apt install python3-venv python3-pip
 
   # # Install dropbox and start sync
   # # After considering the situation not always setup my VPS,
@@ -97,15 +103,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   #   ( cd ~/Dropbox ; dropbox exclude add Utilities Env )
   # fi
 
-  # Follow Security Tips for Linux
-  # https://www.tecmint.com/linux-server-hardening-security-tips/
+  # # Follow Security Tips for Linux
+  # # https://www.tecmint.com/linux-server-hardening-security-tips/
 
-  ## Install SELinux and enable it
-  if [ ! -f /.autorelabel ]; then
-    sudo apt install policycoreutils selinux-utils selinux-basics
-    sudo selinux-activate
-    sudo touch /.autorelabel
-  fi
+  # ## Install SELinux and enable it
+  # if [ ! -f /.autorelabel ]; then
+  #   sudo apt install policycoreutils selinux-utils selinux-basics
+  #   sudo selinux-activate
+  #   sudo touch /.autorelabel
+  # fi
 
   ## Unless we add allowed user to /etc/cron.allow, default will denied crontab for all users
   if [ ! -f /etc/cron.deny ]; then

@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   mackup restore
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   # Linux
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+  export PATH=$PATH:$HOME/.linuxbrew/bin
   chezmoi init --apply CaptainVincent
   chezmoi update
   /bin/bash -c "${BASEDIR}/relink_chezmoi2mackup.sh"

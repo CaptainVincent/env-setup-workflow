@@ -10,10 +10,7 @@ weight: 1
 
 - Reset the password of ubuntu if we don't know ubuntu's password
 ```bash
-sudo passwd
-su
-passwd -d ubuntu
-exit
+sudo passwd -d ubuntu
 passwd
 ```
 
