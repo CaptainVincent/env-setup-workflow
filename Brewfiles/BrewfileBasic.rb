@@ -21,22 +21,6 @@ brew "ripgrep"
 brew "fzf"
 # Add code completions to all your code editors
 cask "kite"                          if /darwin/ =~ RUBY_PLATFORM # mac only
-# Swiss-army knife of markup format conversion (build head exa dependency)
-brew "pandoc"
-# Safe, concurrent, practical language (build head exa dependency)
-brew "rust"
-# Modern replacement for 'ls'
-brew "exa" #, args: ["HEAD"]
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-# More intuitive version of du in rust
-brew "dust"
-# Modern replacement for ps written by Rust
-brew "procs"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
-# Monitor data's progress through a pipe
-brew "pv"
 # Create and view interactive cheat sheets for *nix commands
 brew "cheat"
 # Readline wrapper: adds readline support to tools that lack it (cht.sh shell need)
@@ -57,8 +41,26 @@ cask "hiddenbar"                     if /darwin/ =~ RUBY_PLATFORM # mac only
 brew "mackup"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Improved top (interactive process viewer)
 brew "htop"
+# Swiss-army knife of markup format conversion (build head exa dependency)
+brew "pandoc"
+# Safe, concurrent, practical language (build head exa dependency)
+brew "rust"
+# Modern replacement for 'ls'
+brew "exa" #, args: ["HEAD"]
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# More intuitive version of du in rust
+brew "dust"
+# Modern replacement for ps written by Rust
+brew "procs"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Monitor data's progress through a pipe
+brew "pv"
 # Generate ASCII art with terminal, shell, and OS info
 brew "screenfetch", args: ["HEAD"]
 # Command-line interface for https://speedtest.net bandwidth tests

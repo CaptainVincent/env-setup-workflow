@@ -68,6 +68,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo apt install unar
   fi
 
+  # Install system python
+  sudo apt install python3-venv python3-pip
+
   # # Install dropbox and start sync
   # # After considering the situation not always setup my VPS,
   # # linux base choose dotfiles manager `chezmoi`.

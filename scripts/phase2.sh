@@ -16,3 +16,6 @@ fi
 
 # Install vim plugins
 vim +'PlugInstall --sync' +qa
+
+# Install python packages/tools globally through pipx
+./install_python_global.sh

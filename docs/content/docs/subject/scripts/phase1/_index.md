@@ -1,7 +1,7 @@
 ---
 title: phase1.sh
 type: docs
-weight: 5
+weight: 2
 ---
 
 # Usage

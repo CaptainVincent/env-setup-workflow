@@ -1,4 +1,5 @@
 #!/bin/bash
+# Proper header for a Bash script.
 
 # NPM global packages
 npm i -g import-cost

@@ -15,8 +15,7 @@ graph TD
   B --> D(git clone env-setup-workflow)
   C --> D
   D --> E(rename_hostname.sh)
-  E --> F("init_global_python_env.sh (consider use pipx instead)")
-  F --> G(init zsh)
+  E --> G(init zsh)
   subgraph phase1.sh
   G --> H("install homebrew | linuxbrew")
   H --> I(brew bundle install)
@@ -27,9 +26,10 @@ graph TD
   subgraph phase2.sh
   K --> |Mac, after dropbox was manual synced| L(mackup restore)
   K --> |Linux| M(chezmoi init --apply CaptainVincent &<br>relink symbolic link)
-  L --> N(Install vim plugins)
-  M --> N
+  L --> N1(Install vim plugins)
+  M --> N1
+  N1 --> N2("Install python packages/tools globally")
   end
-  N --> |Mac| O("Mac Manual Setup (Post-processing)")
-  N --> |Linux| P("Linux Manual Setup (Post-processing)")
+  N2 --> |Mac| O("Mac Manual Setup (Post-processing)")
+  N2 --> |Linux| P("Linux Manual Setup (Post-processing)")
 {{< /mermaid >}}
