@@ -29,14 +29,14 @@ Here list so many steps because I alway prefer clean reinstall my Mac and avoid 
     - 文字 > disable `自動大寫` and `加入全形句號`
     - 快速鍵
         - 指揮中心 > 顯示通知中心 `Cmd + Shit + >`
-        - 輸入方式 > 選擇上一個 `Cmd + Space`, disable Next
+        - 輸入方式 > 選擇上一個 `Cmd + Space`, 下一個是 `Cmd + Shift + Space`
         - 停用 Spotlight 的快速鍵 (與 Alfred 習慣的快速鍵衝突)
     - 輸入方式 > disable 使用大寫鎖定切換 ABC 與目前輸入方式
     - `defaults write -g ApplePressAndHoldEnabled -bool false`
         > 關閉 key 按壓連續輸入被限制的設定, need relogin
     - 停用 Text 連續兩個 space 被替換成 dot (Add period with double-space) 
         > not exist anymore?
-    - 全面鍵盤操控 (鍵盤) (not exist anymore?)
+    - 鍵盤 > 快速鍵 > 使用鍵盤導覽來在控制項目之間移動焦點
 2. 觸控式軌跡板
     - 點按
        - [x] 點一下來選按
@@ -72,7 +72,9 @@ Here list so many steps because I alway prefer clean reinstall my Mac and avoid 
     - 進階
         - enable 顯示所有副檔名
         - disable 改變副檔名前顯示警告
-7. Docker 與選單列
+        - enable 將檔案夾保留在最上方 (依名稱排序時)
+        - 執行搜尋時: 搜尋目前的檔案夾
+7. Dock 與選單列
     - Dock enable `放大` and `自動隱藏及顯示Dock`, disable `顯示最近使用過的應用程式` 
     - 藍芽 在選單列中顯示
     - 聲音 在選單列中顯示 `永遠`
@@ -81,10 +83,13 @@ Here list so many steps because I alway prefer clean reinstall my Mac and avoid 
 8. Misc
     - 隱私 > 進入睡眠立即鎖定
     - 一般
+        - enable `於卷軸點按時跳制點按的位置`
         - enable `關閉文件時詢問保留`
         - disable `結束 App 時關閉視窗`
         - 最近使用過的項目 `無`
     - 聲音 > 音效 > 調整提示音音量至最小
+        - [ ] 啟動時播放聲音
+        - [ ] 播放使用者介面的音效
 9. 從 iMessage 中打開 sync from iCloud 的選項
 10. reverse `Erase Mac` action
 
@@ -93,11 +98,10 @@ Here list so many steps because I alway prefer clean reinstall my Mac and avoid 
 - Copy or merge `.zsh_history` from old computer
 - Point alfred preference to Dropbox and enable powerpack
 - Install Smooze (mouse only)
-- Install fonts if iterm2 font not display normal with p10k
-```bash
-brew tap homebrew/cask-fonts
-brew install install font-hack-nerd-font
-```
+- Install fonts 
+  > p10k configure (if not need manual install)
+- fix spotify black screen issue
+  > https://mrmad.com.tw/fix-spotify-black-screen
 - If iterm2 has tab style setting (Because Catalina preference not match with Big Sur)
   > https://felixjung.io/blog/posts/pretty-iterm2-with-a-modern-titlebar
 - Install sublime package control
@@ -107,7 +111,6 @@ brew install install font-hack-nerd-font
 ## Exist issues
 
 - Overwrite Zotero with darktheme (should be auto)
-- brave not sync yet
 
 ---
 
@@ -120,7 +123,7 @@ sudo xattr -r -d com.apple.quarantine `app path` // 用拖拉至 terminal 即可
 xattr -cr xxx.app                                // 如果上面方法失效的話可用此移除 binary 的全部附加屬性
 ```
 
-## Enable aptX codec
+## Enable aptX codec (Monterey not exist?)
 ```bash
 sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true // Enable Aptx
 ```
@@ -129,7 +132,6 @@ sudo defaults write bluetoothaudiod "Enable AptX codec" -bool true // Enable Apt
 > Manual clean temp folder
 - `$HOME/Library/Caches/Homebrew/`
 - `$HOME/Library/Caches/Homebrew/Cask`
-
 
 ## Homebrew cask 實際安裝路徑
 > Manual remove app if it's not cleaned up
@@ -154,6 +156,10 @@ save mac power
 ## xcode theme
 https://github.com/hdoria/xcode-themes
 > 目前已經匯入完成, mackup 應該要會自動備份不用再重新安裝
+
+## iterm2 navigation key map
+https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line
+> 如果是用 mackup overwrite 就不用管
 
 ## Unknown section
 `CFLAGS="-I$(brew --prefix readline)/include -I$(brew --prefix openssl)/include -I$(xcrun --show-sdk-path)/usr/include" \                                                                                   ~

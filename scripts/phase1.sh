@@ -24,7 +24,8 @@ then
 fi
 
 # Set up zsh as default
-if [[ "$SHELL" != */zsh && $(grep -q '$USER' /etc/passwd) ]]; then
+# if [[ "$SHELL" != */zsh && $(grep -q '$USER' /etc/passwd) ]]; then
+if [[ "$SHELL" != */zsh ]]; then
   echo "Default shell is not zsh, auto change it."
   chsh -s $(which zsh)
   exec zsh
@@ -34,7 +35,7 @@ fi
 if command_exists zinit &> /dev/null
 then
   echo "zinit not found, install it"
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  sh -c "$(curl -fsSL https://git.io/zinit-install)"
 fi
 
 # Install homebrew | linuxbrew
@@ -51,7 +52,7 @@ fi
 
 # Install homebrew packages
 echo "brew bundle install packages"
-brew bundle --file=${BASEDIR}/../Brewfiles/BrewfileBasic.rb
+brew bundle --file=../Brewfiles/BrewfileBasic.rb
 
 # Install linuxbrew not suppoted packages
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then

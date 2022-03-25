@@ -4,4 +4,4 @@
 pipx install pipenv
 pipx install pip_search
 pipx install solc-select
-pipx install chardet
+# pipx install chardet
