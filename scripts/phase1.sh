@@ -58,7 +58,7 @@ fi
 
 # Install homebrew packages
 echo "brew bundle install packages"
-brew bundle --file=../Brewfiles/BrewfileBasic.rb
+brew bundle --file=../Brewfiles/BrewfileVPS.rb
 
 # Install linuxbrew not suppoted packages
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
