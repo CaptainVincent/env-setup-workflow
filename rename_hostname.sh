@@ -10,7 +10,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     scutil --set LocalHostName $2
     scutil --set ComputerName $3
   else
-    echo 'wrong number of parameters, only support 2'
+    echo 'wrong number of parameters, only support 3'
     exit 1
   fi
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then

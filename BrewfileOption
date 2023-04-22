@@ -1,0 +1,6 @@
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
+# Protocol buffers (Google's data interchange format)
+brew "protobuf"
+# Run Stable Diffusion locally
+cask "diffusionbee"

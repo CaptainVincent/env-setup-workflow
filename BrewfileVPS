@@ -1,0 +1,50 @@
+tap "blacktop/tap"
+tap "homebrew/bundle"
+tap "homebrew/command-not-found"
+tap "moncho/dry"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Configurable talking characters in ASCII art
+brew "cowsay"
+# More intuitive version of du in rust
+brew "dust"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Improved top (interactive process viewer)
+brew "htop"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Easily rename multiple files using your text editor
+brew "massren"
+# Node version management
+brew "n"
+# Tiny, lightning fast, feature-packed file manager
+brew "nnn"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# Python version management
+brew "pyenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Text interface for Git repositories
+brew "tig"
+# Terminal multiplexer
+brew "tmux"
+# Maintained ctags implementation
+brew "universal-ctags"
+# Internet file retriever
+brew "wget"
+# a Docker manager for the terminal
+brew "moncho/dry/dry"

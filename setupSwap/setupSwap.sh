@@ -51,11 +51,34 @@ if [[ $EUID -ne 0 ]]; then
     exit 1;
 fi
 
+BASEDIR=$(dirname "$0")
+force=false
+mark="$BASEDIR/executed.txt"
+
+#support option -f
+while getopts ":f" opt; do
+  case $opt in
+    f)
+      force=true
+      ;;
+    \?)
+      echo "invalid option：-$OPTARG" >&2
+      exit 1
+      ;;
+  esac
+done
+
+#check executed or not
+if [ -f $mark ] && ! $force ; then
+  echo "Already done before"
+  exit 0
+fi
+
 #load code functions
-source setupSwap.main.sh
+source $BASEDIR/setupSwap.main.sh
 
 #setup permissions for functions
-chmod 500 setupSwap.main.sh
+chmod 500 $BASEDIR/setupSwap.main.sh
 
 echo ""
 echo "--------------------------------------------------------------------------"
@@ -71,15 +94,13 @@ if [ "$proceed" == "y" ]; then
     echo ""
 
     setupSwapMain
+    touch $mark
 
 else
 
+    echo ""
     echo "You chose to exit. Bye!"
 
 fi
-
-echo ""
-echo "--------------------------------------------------------------------------"
-echo ""
 
 exit 0

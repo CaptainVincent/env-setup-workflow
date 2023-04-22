@@ -141,8 +141,6 @@ createSwap() {
     echo ""
     echo "--> Done"
     echo ""
-
-    exit 1
 }
 
 #the main function that is run by the calling script.
