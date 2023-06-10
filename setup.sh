@@ -3,6 +3,10 @@
 
 BASEDIR=$(dirname "$0")
 
+mackup_config_content="[storage]
+engine = file_system
+path = Dropbox"
+
 # A utility function for check command exist
 command_exists () {
   ! loc="$(type -p "$1")" || [[ -z $loc ]]
@@ -34,10 +38,20 @@ if [[ "$SHELL" != */zsh ]]; then
   chsh -s $(which zsh)
 fi
 
-# Setup swapspace for vps
+# VPS only
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # Setup swapspace
   echo -e "\n- Setup swapspace for vps"
   sudo "$BASEDIR/setupSwap/setupSwap.sh"
+
+  # Inject a warning message before login
+  echo -e "\n- Inject a warning message before login"
+  echo -n "Skip this time? (y/n): "; read option
+  if [ "$option" != "y" ]; then
+    cp $BASEDIR/warning.net ~/.warning.net
+    sudo sed -i "s@#Banner none@Banner ${HOME}/.warning.net@g" /etc/ssh/sshd_config
+    sudo systemctl restart sshd
+  fi
 fi
 
 # # Install homebrew | linuxbrew
@@ -79,7 +93,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   echo -n "Dropbox ready? (y/n): "; read option
   if [ "$option" == "y" ]; then
     if [[ -d "$HOME/Dropbox" ]]; then
-      echo "Mackup restore (TBD)"
+      echo "$mackup_config_content" > ~/.mackup.cfg
+      mackup restore
     else
       echo "Dropbox folder not found in $HOME"
       exit 1
@@ -123,15 +138,6 @@ fi
 # Install nnn file manager plugins
 echo -e "\n- Install nnn plugins"
 sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
-
-# Inject a warning message before login
-echo -e "\n- Inject a warning message before login"
-echo -n "Skip this time? (y/n): "; read option
-if [ "$option" != "y" ]; then
-  cp $BASEDIR/warning.net ~/.warning.net
-  sudo sed -i "s@#Banner none@Banner ${HOME}/.warning.net@g" /etc/ssh/sshd_config
-  sudo systemctl restart sshd
-fi
 
 echo ""
 # Fix perl: warning: Setting locale failed.

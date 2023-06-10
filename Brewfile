@@ -97,8 +97,6 @@ cask "shottr"
 cask "spotify"
 # App to switch hosts
 cask "switchhosts"
-# Utility to hide the notch
-cask "topnotch"
 # Web browser focusing on security
 cask "tor-browser"
 # Web browser with built-in email client focusing on customization and control

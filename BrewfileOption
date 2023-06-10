@@ -2,5 +2,7 @@
 brew "go"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# Utility to hide the notch
+cask "topnotch"
 # Run Stable Diffusion locally
 cask "diffusionbee"
