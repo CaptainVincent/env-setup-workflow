@@ -1,8 +1,24 @@
+# Tool for exploring each layer in a docker image
+brew "dive"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Protocol buffers (Google's data interchange format)
 brew "protobuf"
+# VPN client for secure internet access and private browsing
+cask "nordvpn"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Utility to hide the notch
 cask "topnotch"
 # Run Stable Diffusion locally
 cask "diffusionbee"
+# Trading application
+cask "futubull"
+# Software for Logitech devices
+cask "logi-options-plus"
+# Smooths scrolling and set mouse scroll directions independently
+cask "mos"
+# Desktop virtualization software
+cask "parallels17"
+mas "Coin Tick", id: 1141688067
+mas "Xcode", id: 497799835
