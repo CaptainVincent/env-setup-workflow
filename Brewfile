@@ -23,7 +23,7 @@ brew "cowsay"
 # More intuitive version of du in rust
 brew "dust"
 # Modern replacement for 'ls'
-brew "exa"
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Play, record, convert, and stream audio and video

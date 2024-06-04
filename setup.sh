@@ -35,7 +35,7 @@ if [[ "$SHELL" != */zsh ]]; then
   if [ "$password_status" = "NP" ]; then
     sudo passwd $USER
   fi
-  chsh -s $(which zsh)
+  whoami | xargs -I {} sudo chsh -s $(which zsh) {}
 fi
 
 # VPS only
@@ -126,7 +126,8 @@ vim +'PlugInstall --sync' +qa
 echo -e "\n- Install tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "Install tmux plugins"
-tmux source ~/.tmux.conf && tmux run-shell ~/.tmux/plugins/tpm/bin/install_plugins
+~/.tmux/plugins/tpm/bin/install_plugins
+# tmux source ~/.tmux.conf && tmux run-shell ~/.tmux/plugins/tpm/bin/install_plugins
 
 # To install useful key bindings and fuzzy completion after fzf installed
 echo -e "\n- Install fzf keybinding"
